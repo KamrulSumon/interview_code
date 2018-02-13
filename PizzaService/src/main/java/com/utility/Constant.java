@@ -1,5 +1,9 @@
 package com.utility;
-
+/**
+ * Hold all constants
+ * @author Kamrul Hasan
+ *
+ */
 public class Constant {
 	public static String fileToRead = "";
 	public static String fileToWrite = "";

@@ -7,25 +7,29 @@ import com.model.OrderItem;
 import com.service.OrderServiceImpl;
 import com.utility.*;
 
+/**
+ * Test Pizza order system
+ * @author Kamrul Hasan
+ *
+ */
 public class OrderTest {
 
-	public static void main(String[] args) throws FileNotFoundException {
-		String filePath =  "src/main/resources/sample_data_ordered.txt"   ;//"/Users/sumon/Desktop/Aquent/sample_data_ordered.txt";
-		String filePath2 = "/Users/sumon/Desktop/Aquent/sample_data_ordered2.txt";
+	public static void main(String[] args) throws Exception {
 		OrderServiceImpl oSvc = new OrderServiceImpl();
 		FileHandlerUtil fileUtil = new FileHandlerUtil();
 		
-		List<OrderItem> sortedItems = oSvc.contentReader(filePath); 
-		for(OrderItem itm: sortedItems)
-			System.out.println(itm.getItem() + " -- "+ itm.getUnixTimeStamp());
+		if(args.length < 2) throw new Exception("Please enter number of arguments correctly,(toread and towrite in file)");
+		
+		String pathToRead = args[0];
+		String pathToWrite = args[1];
+
+		if(pathToRead == null || pathToRead.isEmpty()) throw new Exception("File can't be empty or null for reading");
+		if(pathToWrite == null || pathToWrite.isEmpty()) throw new Exception("File can't be empty or null for writing");
+		
+		List<OrderItem> sortedItems = oSvc.contentReader(pathToRead); 
 		List<String> readableFormat = fileUtil.formatInHumanReadable(sortedItems);
 		
-		
-		for(String itm: readableFormat)
-			System.out.println(itm);
-		
-		
-		oSvc.contentWriter(readableFormat, filePath2);
+		oSvc.contentWriter(readableFormat, pathToWrite);
 
 	}
 

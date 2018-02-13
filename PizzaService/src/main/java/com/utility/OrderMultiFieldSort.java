@@ -4,6 +4,11 @@ import java.util.Comparator;
 
 import com.model.OrderItem;;
 
+/**
+ * Multi field sorting
+ * @author Kamrul Hasan
+ *
+ */
 public class OrderMultiFieldSort implements Comparator<OrderItem>{
 
 	@Override

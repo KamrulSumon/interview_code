@@ -16,6 +16,11 @@ import java.util.logging.Logger;
 
 import com.model.OrderItem;
 
+/**
+ * Handle File read/write
+ * @author Kamrul Hasan
+ *
+ */
 public class FileHandlerUtil {
 	private static final Logger logger = Logger.getLogger(FileHandlerUtil.class.getName());
 	
